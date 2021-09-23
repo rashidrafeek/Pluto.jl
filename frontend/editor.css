@@ -39,6 +39,7 @@ html {
 
 body {
     margin: 0px;
+    padding: 0px;
     overflow-anchor: none;
     position: relative;
 
@@ -256,7 +257,8 @@ pluto-output blockquote {
     background-color: #f2f2f2;
     color: #555;
 }
-pluto-output.rich_output pre:not(.no-block):last-child, pluto-output blockquote:last-child {
+pluto-output.rich_output pre:not(.no-block):last-child,
+pluto-output blockquote:last-child {
     margin-block-end: 0px;
 }
 
