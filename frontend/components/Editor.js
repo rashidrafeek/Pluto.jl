@@ -29,6 +29,7 @@ import { start_binder, BinderPhase, count_stat } from "../common/Binder.js"
 import { read_Uint8Array_with_progress, FetchProgress } from "./FetchProgress.js"
 import { BinderButton } from "./BinderButton.js"
 import { slider_server_actions, nothing_actions } from "../common/SliderServerClient.js"
+import { available as vscode_available } from "../common/VSCodeApi.js"
 
 const default_path = "..."
 const DEBUG_DIFFING = false
@@ -161,7 +162,7 @@ const url_logo_small = document.head.querySelector("link[rel='pluto-logo-small']
 const url_params = new URLSearchParams(window.location.search)
 const launch_params = {
     //@ts-ignore
-    notebook_id: url_params.get("id") ?? window.pluto_notebook_id,
+    notebook_id: (vscode_available ? null : url_params.get("id")) ?? window.pluto_notebook_id,
     //@ts-ignore
     statefile: url_params.get("statefile") ?? window.pluto_statefile,
     //@ts-ignore
